@@ -201,5 +201,5 @@ do link: https://reedbluue.github.io/opencv-card-detector/
 
 ## 📝 Licença
 
-Esse projeto está sob licença. Veja o arquivo [LICENÇA](../../../Desktop/opencv-card-detector/LICENSE) para mais
+Esse projeto está sob licença. Veja o arquivo [LICENÇA](./LICENSE) para mais
 detalhes.
