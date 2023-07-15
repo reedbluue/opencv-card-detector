@@ -11,7 +11,7 @@ public class CardAreaTest {
   public static void main(String[] args) {
     OpenCVService opencvService = OpenCVService.getInstance();
     CamService camService = new CamService(1, frame -> {
-      List<MatOfPoint> contours = opencvService.returnOrderedAndExternalContours(frame);
+      List<MatOfPoint> contours = opencvService.returnOrderedAndExternalContours(frame).stream().filter(c -> Imgproc.contourArea(c) > 100).toList();
       Imgproc.drawContours(frame, contours, -1, new Scalar(0, 0, 0), 5);
       Imgproc.drawContours(frame, contours, -1, new Scalar(255, 0, 0), 2);
       contours.forEach(c -> {
@@ -25,7 +25,7 @@ public class CardAreaTest {
             maxY = point.y;
           }
         }
-        Imgproc.putText(frame, String.valueOf(Imgproc.contourArea(c)), new Point(maxX, maxY), Imgproc.FONT_HERSHEY_SIMPLEX, 0.5, new Scalar(255, 0, 0), 2);
+        Imgproc.putText(frame, String.valueOf(Imgproc.contourArea(c)), new Point(maxX, maxY), Imgproc.FONT_HERSHEY_SIMPLEX, 1, new Scalar(255, 0, 0), 2);
       });
       return frame;
     });

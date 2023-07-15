@@ -369,7 +369,7 @@ public class OpenCVService {
 
     cards.forEach(c -> {
       String text;
-      double fontScale = c.dimensions().contour().area() / 55000;
+      double fontScale = c.dimensions().contour().contour().width() * 1.5;
       if (c.predict().suit() == Suits.JOKER || c.predict().rank() == Ranks.JOKER) text = "JOKER";
       else text = c.predict().rank().getLabel() + " of " + c.predict().suit().getLabel();
 
